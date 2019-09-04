@@ -3,7 +3,7 @@ site_description: crypto
 site_author: nianhua
 
 repo_name: 'crypto-wiki'
-repo_url: 'https://www.baidu.com'
+repo_url: 'http://repo.crypto-wiki.io'
 
 theme:
     name: 'material'
