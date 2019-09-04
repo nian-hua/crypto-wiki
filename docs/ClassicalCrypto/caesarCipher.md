@@ -26,3 +26,14 @@ ciphertext: efgfoe uif fbtu xbmm pg uif dbtumf
 
 ## 凯撒密码的数学描述
 
+首先，我们将所有字符翻译成数字，'a'= 0，'b'= 1，'c'= 2，...，'z'= 25。我们现在可以使用数学描述表示凯撒密码加密函数e(x)，其中x是我们要加密的字符，如：
+
+<p style="text-align:center;"><img width="200px" src="../image/Caesar-3.png" /></p>
+
+其中k是密钥（每次加密使用的位移）。使用这个公式加密后的结果为数字，我们需要再将其转换为字母。
+
+解密的数学描述如下：
+
+<p style="text-align:center;"><img width="200px" src="../image/Caesar-4.png" /></p>
+
+## 凯撒密码的程序实现
