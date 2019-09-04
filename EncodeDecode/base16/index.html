@@ -1,0 +1,1292 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="crypto">
+      
+      
+      
+        <meta name="author" content="nianhua">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>Base16编码 - crypto-wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="pink">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#base16" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../.." title="crypto-wiki" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              crypto-wiki
+            </span>
+            <span class="md-header-nav__topic">
+              
+                Base16编码
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/nian-hua/BurpExtender/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    crypto-wiki
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../.." class="md-tabs__link">
+          密码学简介
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../introduction/" class="md-tabs__link md-tabs__link--active">
+          编码与解码
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../ClassicalCrypto/introduction/" class="md-tabs__link">
+          古典密码学
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../index1.md" class="md-tabs__link">
+          现代密码学
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../index4.md" class="md-tabs__link">
+          About
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../.." title="crypto-wiki" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    crypto-wiki
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/nian-hua/BurpExtender/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    crypto-wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      密码学简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        密码学简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../.." title="密码学简介" class="md-nav__link">
+      密码学简介
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2" checked>
+    
+    <label class="md-nav__link" for="nav-2">
+      编码与解码
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        编码与解码
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../introduction/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../ascii/" title="ASCII编码" class="md-nav__link">
+      ASCII编码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../base64/" title="Base64编码" class="md-nav__link">
+      Base64编码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../base32/" title="Base32编码" class="md-nav__link">
+      Base32编码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        Base16编码
+      </label>
+    
+    <a href="./" title="Base16编码" class="md-nav__link md-nav__link--active">
+      Base16编码
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#base16" class="md-nav__link">
+    Base16简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    识别编码方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    例题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    混合编码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    循环编码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../XXencode/" title="XXencode编码" class="md-nav__link">
+      XXencode编码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../UUencode/" title="UUencode编码" class="md-nav__link">
+      UUencode编码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../URL/" title="URL编码" class="md-nav__link">
+      URL编码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../Unicode/" title="Unicode编码" class="md-nav__link">
+      Unicode编码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../welcome/" title="欢迎补充" class="md-nav__link">
+      欢迎补充
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3">
+    
+    <label class="md-nav__link" for="nav-3">
+      古典密码学
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        古典密码学
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/introduction/" title="古典密码学浅析" class="md-nav__link">
+      古典密码学浅析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      古典密码学分类
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        古典密码学分类
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/transposition/" title="置换密码" class="md-nav__link">
+      置换密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/substitution/" title="替换密码" class="md-nav__link">
+      替换密码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/AttackMethod/" title="古典密码学常见的攻击方式" class="md-nav__link">
+      古典密码学常见的攻击方式
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4">
+    
+    <label class="md-nav__link" for="nav-3-4">
+      置换密码
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        置换密码
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/cryptoBar/" title="密码棒密码" class="md-nav__link">
+      密码棒密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/tarnscrypto/" title="转置密码" class="md-nav__link">
+      转置密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/RailFenceCipher/" title="栅栏密码" class="md-nav__link">
+      栅栏密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/routecipher/" title="曲路密码" class="md-nav__link">
+      曲路密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/Transpcipher/" title="列移位密码" class="md-nav__link">
+      列移位密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/othercrypto/" title="其他密码" class="md-nav__link">
+      其他密码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+    
+    <label class="md-nav__link" for="nav-3-5">
+      文本表征
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-5">
+        文本表征
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/Characterisation/" title="文本表征简介" class="md-nav__link">
+      文本表征简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/Chi-squared/" title="卡方统计" class="md-nav__link">
+      卡方统计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/IndexofCoincidence/" title="重合指数" class="md-nav__link">
+      重合指数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/frequencyAnalysis/" title="频率分析" class="md-nav__link">
+      频率分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/Quadgram/" title="四元组统计" class="md-nav__link">
+      四元组统计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/UnicityDistance/" title="唯一解距离" class="md-nav__link">
+      唯一解距离
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/WordStatistics/" title="单词统计" class="md-nav__link">
+      单词统计
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
+    
+    <label class="md-nav__link" for="nav-3-6">
+      替换密码
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-6">
+        替换密码
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/AtbashCipher/" title="埃特巴什码" class="md-nav__link">
+      埃特巴什码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../ClassicalCrypto/caesarCipher/" title="凯撒密码" class="md-nav__link">
+      凯撒密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../welcome/" title="简单替换密码" class="md-nav__link">
+      简单替换密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../welcome/" title="维吉尼亚密码" class="md-nav__link">
+      维吉尼亚密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../welcome/" title="ZXXX密码" class="md-nav__link">
+      ZXXX密码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../welcome/" title="欢迎补充" class="md-nav__link">
+      欢迎补充
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      现代密码学
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        现代密码学
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../index1.md" title="现代密码学" class="md-nav__link">
+      现代密码学
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../index1.md" title="现代密码学" class="md-nav__link">
+      现代密码学
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      About
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        About
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../index4.md" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../index4.md" title="About" class="md-nav__link">
+      About
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#base16" class="md-nav__link">
+    Base16简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    识别编码方式
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    例题
+  </a>
+  
+    <nav class="md-nav">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    混合编码
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    循环编码
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/nian-hua/BurpExtender/edit/master/docs/EncodeDecode/base16.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>Base16编码</h1>
+                
+                <h2 id="base16">Base16简介<a class="headerlink" href="#base16" title="Permanent link">&para;</a></h2>
+<p>Base16编码使用16个ASCII可打印字符（数字0-9和字母A-F）对任意字节数据进行编码。</p>
+<p>Base16先获取输入字符串每个字节的二进制值（不足8比特在高位补0），然后将其串联进来，再按照4比特一组进行切分，将每组二进制数分别转换成十进制，在下述表格中找到对应的编码串接起来就是Base16编码。</p>
+<p>可以看到8比特数据按照4比特切分刚好是两组，所以Base16不可能用到填充符号“=”。</p>
+<p>Base16编码后的数据量是原数据的两倍：1000比特数据需要250个字符（即 250*8=2000 比特）。换句话说：Base16使用两个ASCII字符去编码原数据中的一个字节数据。</p>
+<table>
+<thead>
+<tr>
+<th></th>
+<th>a</th>
+<th>s</th>
+<th>d</th>
+<th align="left">f</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>ASCII</td>
+<td>97</td>
+<td>115</td>
+<td>100</td>
+<td align="left">102</td>
+</tr>
+<tr>
+<td>hex</td>
+<td>0x61</td>
+<td>0x73</td>
+<td>0x64</td>
+<td align="left">0x66</td>
+</tr>
+<tr>
+<td>Base16</td>
+<td>61</td>
+<td>73</td>
+<td>64</td>
+<td align="left">66</td>
+</tr>
+</tbody>
+</table>
+<h2 id="_1">识别编码方式<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">注意</p>
+<p><strong>Base64、Base32、Base16编码的识别关键：</strong></p>
+<p><strong>Base64 : A-Z、a-z、0-9、+、/以及小于等于两个等号</strong></p>
+<p><strong>Base32 : A-Z、2-7以及补位的等号</strong></p>
+<p><strong>Base16 : 0-9、A-F</strong></p>
+</div>
+<h2 id="_2">例题<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<h3 id="_3">混合编码<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">例题</p>
+<p>请解码以下字符串:
+<code>R1pDVE1NWlhHUTNETU4yQ0dZWkRNTUpYR00zREtNWldHTTJES1JSV0dJM0RDTlpUR1kyVEdNWlRHSTJVTU5SUkdaQ1RNTkJWSVkzREVOUlJHNFpUTU5KVEdFWlRNTjJF</code></p>
+</div>
+<p>首先尝试Base64解码（因为编码后的数据有大小写之分）
+<div class="codehilite"><pre><span></span>Base64解码：GZCTMMZXGQ3DMN2CGYZDMMJXGM3DKMZWGM2DKRRWGI3DCNZTGY2TGMZTGI2UMNRRGZCTMNBVIY3DENRRG4ZTMNJTGEZTMN2E
+</pre></div>
+我们再对解码后的数据使用Base32解码（因为编码后的数据只有大写字母和数字）
+<div class="codehilite"><pre><span></span>Base32解码：6E6374667B6261736536345F6261736533325F616E645F6261736531367D
+</pre></div>
+再使用Base16解码即可（因为编码后的数据只有0-9、A-F）
+<div class="codehilite"><pre><span></span>Base16解码：nctf{base64_base32_and_base16}nctf{base64_base32_and_base16}
+</pre></div></p>
+<hr />
+<h3 id="_4">循环编码<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h3>
+<div class="admonition tip">
+<p class="admonition-title">例题</p>
+<p>请解码以下字符串:
+<div class="codehilite"><pre><span></span>GM2DINJTGUZTIMZUGM4TGNZUGEZTINBUGM2TGNBTGUZTEMZUGMZDGNBUGUZTIMZUGM2DGOJTGMZTCMZUGQ2TGNRUGEZTKMZRGMZTGMJTGQ2DKMZXGQYTGNJTGEZTGMZRGM2DINBTGY2DCMZVGM2TGNZUGEZTINBVGM3DIMRTGQ2DIMZTGMYTGNBUGUZTMNBRGM2TGMRTGQZTEMZUGQ2TGNJTGQZTKMZZGMZTGMJTGQ2DKMZUGM2DGNJTGIZTIMZSGM2DINJTGQZTIMZVGM2TGMZTGEZTINBVGM2DGNBTGUZTKMZTGMYTGNBUGQZTONBRGM2TGNJTGMZTAMZUGQ2DGNZUGEZTKMZVGMZTGMRTGQ2DKMZWGQZDGNBTHEZTGMZSGM2DINJTGQZTIMZVGM2TGMZTGIZTINBVGM2DGNJTGUZTCMZXGQYTGNBUGQZTKMZUGM2TGNJTG4ZTSMZUGQ2TGNBTGUZTIMZVGMZTGMJTGQ2DKMZUGM2DGNJTGUZTGMZSGM2DINJTG42DCMZUGMYTGMZTGEZTINBVGM3DIMJTGUZTKMZXGQYTGNBUGUZTKMZUGM2TGNJTGMZTCMZUGQ2TGNJTGQZTMMZTGMZTGNJTGQ2DKMZVGM2DGNBTHEZTGMZRGM2DINJTGUZTIMZVGM4TGMZTGAZTINBVGM2DGNJTGUZTSMZTGMYTGNBUGQZTKMZUGM2DINBTG4ZTOMZUGQ2TGNBTGUZTIMZVGMZTGMBTGQ2DMMZUGM2DGNJTGUZTGMZRGM2DINJTGY2DEMZUGM4TGMZTGAZTKMZRGM2TGNBTGUZTCMZTGMYTGNBUGUZTKMZUGM2DINBTGMZTCMZUGQ2TGNJTGQZTINBUGMZTGMJTGQ2DKMZUGM2DGNBUGQZTGMZRGM2DINJTGY2DCMZVGM2TGMZTGEZTINBVGM3DIMJTGQ2DIMZXGQYTGNBUGQZTIMZUGM2TGMRTGQZTKMZUGQ2TGNRUGIZTINBUGMZTGMJTGQ2DIMZWGQYTGNJTGIZTIMZSGM2DINJTGUZTIMZVGMYTGMZTGEZTINBVGM3DIMJTGYZTGMZXGM3TGNBUGUZTKMZUGM2TGMJTGMZTCMZUGQ2DGNRUGEZTINBUGM3TGOBTGQ2DKMZUGM2TGNBTGUZTGMZQGM2DINBTG42DCMZVGM2TGNZTHEZTINBVGM2DGNBTGUZTKMZTGMZDGNJTGEZTONBRGM2TGNJTG4ZTSMZUGQ2TGNJTGQZTKMZVGMZTGMRTGUZTCMZXGQYTGNJTGUZTGMZSGM2DINJTGQZTIMZWGM3TGMZTGEZTINBVGM3TIMJTGUZTKMZTGMYDGNBUGUZTIMZVGM2DGNJTGMZTAMZUGQ2TGNRUGEZTKMZVGM3TGOJTGQ2DIMZXGQYTGNBTGEZTONBRGM2DINJTGUZTIMZVGMZDGNBTGMZTINBVGM2TGNBTGUZTSMZTGMYTGNBUGUZTKMZUGM2TGOJTGMZTAMZUGQ2TGNJTGQZTIMZZGMZTGMBTGUZTEMZVGM2DGNJTGEZTGMZSGM2DINJTGUZTIMZUGM4TGMZTGAZTKMZRGM3TIMJTGUZTKMZTGMYDGNBUGUZTMNBSGM2DINBTGMZTGMZUGQ2DGNBTGQZTKMZVGMZTGMZTGQ2DKMZVGM2DGNBTHEZTONBRGM2DINBTGQZTIMZUGQ2DGNZTG4ZTINBVGM3TIMJTGY2DEMZTGMYTGNBUGQZTMNBRGM2TGMJTGMZTCMZUGQ2TGNZUGEZTKMZRGMZTGMBTGUZTEMZWGQYTGNJTGUZTOMZYGM2DINBTG42DCMZUGMYTGMZTGAZTKMZSGM2TGNBTGUZTCMZTGM2DGNBUGUZTKMZUGM2TGNJTGMZTCMZUGQ2TGNRUGEZTMMZTGM3TGNZTGQ2DKMZUGM2DGNJTGUZTGMZRGM2DINBTG42DCMZVGM2TGMZTGEZTINBUGM3TIMJTGY2DEMZTGMYDGNBUGQZTONBRGM2TGNJTGMZTEMZUGQ2TGNJTGQZTKMZVGMZTGMRTGQ2DKMZUGM2DGNJTGYZTIMZSGM2DINJTGQZTKMZVGMYTGMZTGIZTKMZRGM3DIMJTGUZTKMZTGMZDGNBUGUZTIMZVGM2DGNJTGMZTCMZUGQ2TGNBTGQZTKNBRGM2DGMZTGQ2DKMZXGQYTGNBTGEZTGMZRGM2DINJTG42DCMZVGM2TGNZTHEZTINBUGM3TIMJTGQZTKMZTGMYDGNBUGUZTMNBRGM2TGOJTG4ZTQMZUGQ2TGNJTGQZTKMZZGMZTGMBTGQ2DKMZVGM2DGNRTGMZTGMZQGM2DINJTGUZTIMZUGMYTGMZTGEZTINBUGM2TGNBTGU2DCMZUGM2DGNBUGUZTKMZUGM2TGOJTGMZTAMZUGQ3DGNBTGQZTKMZSGM2DGNRTGQ2DKMZUGM2DGNJTGEZTGMZQGM2TGMJTGUZTIMZVGMYTGMZTGEZTINBVGM2TGNBTGUZTKMZXGQYTGNBUGQZTIMZUGM2DINBTGMZTCMZUGQ2TGNBTGUZTINBUGMZTGMJTGQ2DIMZVGM2DGNJUGEZTIMZTGM2DINJTGY2DCMZVGMYTGMZTGEZTINBUGM3DIMJTGUZTEMZUGM2TGNBUGUZTMNBSGM2DINBTGMZTCMZUGQ2DGNRUGEZTKMZSGM2DGNBTGQ2DKMZVGM2DGNJTGEZTONBRGM2DINBTGQZTIMZWGMZTGNZTG4ZTINBVGM2TGNBTGYZTGMZTGMYTGNBUGQZTMNBRGM3DGNBTGQZTEMZUGQ2TGNJTGQZTIMZVGMZTGMZTGQ2DMMZVGM2DGNJTGUZTOMZZGM2DINJTGUZTIMZVGM2TGMZTGEZTINBVGM3DIMJTGUZTEMZUGM3TGNBUGUZTKMZUGM2DGNJTG42DCMZUGQ2DGNBTGQZTKMZWGM2DGMRTGQ2DKMZUGM2DGNRTG4ZTGMZRGM2DINJTGUZTIMZVGQYTGNBTGMZTINBVGM2DGNJTGQZTKMZTGMYDGNBUGUZTKMZUGM2TGNJTG42DCMZUGQ2DGNZUGEZTIMZVGMZTGMBTGQ2DKMZWGQYTGNJTGIZTIMZTGM2DINJTGUZTIMZVGM4TGMZTGEZTINBVGM2TGNBTGU2DCMZUGM2DGNBUGUZTIMZUGM2TGOJTGMZTAMZVGMZDGNBTGQZTKNBRGM2DGNBTGQ2DKMZVGM2DGNBTHEZTGMZQGM2TGMJTG42DCMZVGM2TGMZTGAZTINBVGM3DIMRTGQZTSMZTGMYDGNJTGIZTKMZUGM2TGMJTGMZTEMZUGQ2TGNJTGQZTIMZZGM3TIMJTGQ2DIMZVGM2DGNJTGIZTIMZSGM2DINJTGQZTIMZVGMYTGMZTGEZTINBVGM3DIMJTGUZTCMZTGMYTGNBUGUZTONBRGM2TGMJTGMZTAMZVGMZDGNJTGQZTKMZVGMZTGMZTGQ2DKMZWGQZDGNBUGQZTGMZRGM2TGMJTGUZTIMZVGMZDGNBTGIZTINBVGM2TGNBTGQZTSMZTGMYTGNBUGUZTIMZUGM2TGMRTGQZTEMZUGQ2TGNBTGQZTKMZZGMZTGMJTGQ2DIMZWGQYTGNJTGUZTGMZRGM2DINBTG42DCMZVGM2TGMZTGAZTKMZRGM3DIMJTGUZTKMZTGMYTGNBUGQZTONBRGM2DGMJTGMZTEMZUGQ2TGNBTGQZTKMZVGM3TGOJTGQ2DKMZVGM2DGNRTGMZTGMZSGM2TGMJTGY2DCMZVGM2TGNZTHEZTINBVGM2DGNJTGQZTKMZTGMYTGNBUGUZTIMZUGM2TIMJTGQZTGMZUGQ2TGNZUGEZTIMZRGMZTGMJTGQ2DKMZVGM2DGNJTGUZTOMZZGM2DINBTG42DCMZUGM2TGMZTGIZTKMZRGM3DIMJTGYZTGMZTGM2TGNBUGUZTKMZUGM2TGOJTGMZTAMZUGQ2TGNJTGQZTKNBRGM2DGNBTGQ2DKMZUGM2TGNJTHEZTGMZRGM2DINBTG42DCMZVGQYTGNBTGQZTINBVGM2TGNBTGQZTSMZTGMYDGNBUGYZTIMZUGM2TGNJTGMZTEMZUGQ2TGNJTGQZTKMZRGMZTGMBTGUZTCMZVGM2DGNJTGEZTGMZRGM2DINJTGUZTIMZUGQ2DGMZTGEZTINBVGM3DIMJTGUZTCMZTGMZDGNBUGUZTKMZUGM2DINBTGMZTCMZUGQ2TGNRUGEZTKNBRGM2DGMZTGQ2DKMZWGQYTGNJTGEZTGMZQGM2TGMJTGUZTIMZVGMZDGNBTGUZTINBVGM3DIMRTGQZTSMZTGMYTGNBUGQZTMNBRGM2TGNJTG4ZTOMZUGQ2TGNJTGQZTKMZRGMZTGMRTGUZTCMZWGQYTGNRTGMZTOMZXGM2DINJTGUZTIMZWGMZTGMZTGEZTINBUGM3DIMJTGQ2DIMZXGM3TGNBUGQZTONBRGM2DGMJTGMZTGMZUGQ3DGNJTGQZTKMZVGM3TGOJTGQ2DKMZUGM2DGNJTGUZTGMZTGM2DINJTGQZTIMZVGMZDGNBTGYZTINBVGM2TGNBTGQ2DIMZTGMZDGNJTGEZTONBRGM2TGNRTGQZTEMZUGQ2TGNBTGUZTIMZVGMZTGMJTGQ2DIMZWGQYTGNJTGUZTGMZQGM2DINJTGQZTKMZUGM2TGMZTGEZTINBVGM2TGNBTGUZTKMZTGMYTGNBUGUZTKMZUGM2TGNJTG42DCMZUGQ2TGNJTGQZTKMZRGMZTGMBTGQ2DKMZVGM2DGNBTGUZTGMZSGM2TGMJTGY2DCMZVGM4TGMZTGAZTINBVGM2TGNBTGUZTSMZTGMYDGNJTGIZTIMZUGM2DINBTG4ZTOMZUGQ2TGNJTGQZTIMZZGMZTGMBTGUZTCMZVGM2DGNJTGUZTGMZRGM2DINJTGUZTIMZVGM4TGMZTGMZTINBUGM2DGNBTGUZTKMZTGMZDGNBUGUZTKMZUGM2DGOJTG42DCMZUGQ2DGNJTGQZTKNBRGM2DGMZTGQ2DKMZXGQYTGNRUGIZTGMZRGM2DINJTGY2DCMZVGMYTGMZTGEZTINBVGM2DGNJTGUZTKMZTGMYDGNJTGIZTMNBRGM2TGNJTG42DCMZUGQ2TGNRUGIZTINBUGMZTGMBTGUZTEMZVGM2DGNJTGEZTGMZUGM2DINJTGUZTIMZVGMYTGMZTGEZTINBVGM3DIMJTGYZTGMZXGM3TGNBUGUZTIMZUGM2TGNJTGMZTCMZUGQ2DGNZUGEZTKMZVGMZTGMJTGQ2DIMZXGQYTGNRUGIZTGMZQGM2DINBTG42DCMZVGM2TGMZTGIZTINBVGM2TGNBTGUZTKMZTGMZDGNBUGQZTONBRGM2DINBTG4ZTOMZUGQ2TGNBTGUZTKMZRGMZTGMRTGUZTCMZWGQYTGNJTGUZTGMZSGM2DINJTGQZTKMZUGM2TGMZTGEZTINBVGM2DGNBTGU2DCMZUGMZTGNBUGUZTONBRGM2TGMJTGMZTAMZUGQ2DGNZUGEZTKMZVGM3TGOJTGQ2DIMZXGQYTGNBTGUZTGMZRGM2DINJTGUZTIMZWGMZTGMZTGUZTINBVGM2TGNBTGUZTSMZTGMYDGNBUGUZTKMZUGM2TIMJTGQZTIMZUGQ2TGNJTGQZTIMZZGMZTGMJTGQ2DKMZVGM2DGNJUGEZTIMZUGM2DINJTGUZTKMZUGM2TGMZTGAZTINBWGM2DGNBTGUZTKMZTGMYTGNBUGUZTKMZUGM2TGMJTGMZTAMZVGMYTGNJTGQZTKMZRGMZTGMRTGQ2DKMZVGM2DGNBTHEZTGMZRGM2DINJTGUZTIMZUGQ2DGMZTGEZTINBVGM2DGNJTGQZTSMZTGMYTGNBUGUZTONBRGM2TGMJTGMZTCMZUGQ2TGNRUGEZTKMZRGMZTGMJTGQ2DIMZWGQYTGNJTGIZTIMZVGM2DINBTG42DCMZUGM2TGMZTGEZTINBUGM3DIMJTGUZTEMZUGM2DGNBUGUZTKMZUGM2TGNJTGMZTCMZUGQ2TGNJTGQZTMMZTGM3TGNZTGQ2DKMZVGM2DGNJTHEZTGMZRGM2DINBTG42DCMZVGMYTGMZTGEZTINBVGM2TGNBTGUZTKMZTGMZTGNBUGYZTKMZUGM2TGNJTGMZTEMZUGQ2TGNBTGQZTKMZVGMZTGMRTGUZTCMZXGQYTGNJTGIZTIMZWGM2DINJTGUZTIMZWGMZTGMZTGIZTKMZRGM3TIMJTGUZTEMZUGM3DGNBUGUZTIMZUGM3DGNZTGMZTCMZUGQ2TGNRUGEZTKMZVGMZTGMRTGQ2DKMZWGQZDGNBUGQZTGMZQGM2DINJTGUZTIMZVGM2TGNZUGEZTINBVGM2TGNBTGUZTSMZTGMYDGNBUGUZTMNBRGM2TGMRTGQZTGMZUGQ2TGNJTGQZTKMZZGMZTGMBTGQ2DKMZVGM2DGNJTHEZTGMZQGM2DINJTGUZTIMZVGM4TGMZTGAZTKMZSGM2DGNBTGU2DCMZUGMZTGNBUGUZTKMZUGM2DGOJTGMZTCMZUGQ2DGNRUGEZTKMZVGMZTGMBTGQ2DKMZWGQZDGNBTHEZTGMZTGM2DINBTGQZTIMZVGM2TGMZTGMZTINBVGM2TGNBTGQZTSMZXGQYTGNBUGQZTIMZUGM2DINBTGMZTCMZUGQ2TGNBTGQZTKMZRGMZTGMJTGQ2DIMZWGQYTGNJTGEZTGMZRGM2DINJTGY2DCMZVGMYTGMZTGEZTINBUGM3TIMJTGUZTKMZXGM4DGNBUGUZTMNBSGM2DINBTGMZTCMZUGQ2DGNRUGEZTKMZSGM2DGMRTGQ2DKMZVGM2DGNJTGUZTGMZRGM2DINJTGY2DCMZWGMZTGNZTG4ZTINBVGM2TGNBTGUZTSMZTGMYTGNBUGQZTONBRGM2TGNJTGMZTCMZUGQ2DGNZUGEZTIMZRGMZTGMZTGQ2DMMZVGM2DGNJTGUZTOMZZGM2DINJTGUZTIMZVGM2TGMZTGIZTINBVGM2DGNBTGUZTEMZUGM3TGNBUGUZTKMZUGM2DGNJTG42DCMZUGQ2DGNBTGQZTKMZRGMZTGMJTGQ2DIMZXGQYTGNRUGIZTGMZRGM2DINBTGQZTIMZVGM2TGMZTGAZTINBUGM3TIMJTGQZTCMZXGQYTGNBUGYZTKMZRGMZTINBTGM2DI===
+</pre></div></p>
+</div>
+<p>解码脚本:
+<div class="codehilite"><pre><span></span><span class="kn">import</span> <span class="nn">base64</span>
+
+<span class="n">fr</span> <span class="o">=</span> <span class="nb">open</span><span class="p">(</span><span class="s1">&#39;subject.txt&#39;</span><span class="p">)</span>
+<span class="n">string</span> <span class="o">=</span> <span class="n">fr</span><span class="o">.</span><span class="n">readline</span><span class="p">()</span>
+<span class="n">fr</span><span class="o">.</span><span class="n">close</span><span class="p">()</span>
+
+<span class="k">def</span> <span class="nf">deCodeBase</span><span class="p">(</span><span class="n">string</span><span class="p">):</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">string</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b16decode</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">deCodeBase</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+    <span class="k">except</span><span class="p">:</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">string</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b32decode</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">deCodeBase</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+        <span class="k">except</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="n">string</span> <span class="o">=</span> <span class="n">base64</span><span class="o">.</span><span class="n">b64decode</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+                <span class="k">return</span> <span class="n">deCodeBase</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+            <span class="k">except</span><span class="p">:</span>
+                <span class="k">return</span> <span class="n">string</span>
+
+<span class="k">print</span> <span class="n">deCodeBase</span><span class="p">(</span><span class="n">string</span><span class="p">)</span>
+</pre></div></p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../base32/" title="Base32编码" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                Base32编码
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../XXencode/" title="XXencode编码" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                XXencode编码
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../.."}})</script>
+      
+    
+  </body>
+</html>
