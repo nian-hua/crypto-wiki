@@ -3,7 +3,7 @@ site_description: crypto
 site_author: nianhua
 
 repo_name: 'crypto-wiki'
-repo_url: 'http://repo.crypto-wiki.io'
+repo_url: 'https://github.com/nian-hua/crypto-wiki'
 
 theme:
     name: 'material'
