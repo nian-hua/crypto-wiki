@@ -42,7 +42,7 @@ ciphertext: efgfoe uif fbtu xbmm pg uif dbtumf
 
 	**该程序需要配合文本表征中的ngram_score评分模块，以及quadgrams字典。请移步至[四元组统计](http://crypto-wiki.io/ClassicalCrypto/Quadgram/)。**
 
-```
+```python
 ###
 ###    Date:2018-08-24
 ###   Time:09:00 GMT

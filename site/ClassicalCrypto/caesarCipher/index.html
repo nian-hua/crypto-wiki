@@ -1126,56 +1126,56 @@ ciphertext: efgfoe uif fbtu xbmm pg uif dbtumf
 <p class="admonition-title">注意</p>
 <p><strong>该程序需要配合文本表征中的ngram_score评分模块，以及quadgrams字典。请移步至<a href="http://crypto-wiki.io/ClassicalCrypto/Quadgram/">四元组统计</a>。</strong></p>
 </div>
-<div class="codehilite"><pre><span></span>###
-###    Date:2018-08-24
-###   Time:09:00 GMT
-###  Author:nianhua
-###
+<div class="codehilite"><pre><span></span><span class="c1">###</span>
+<span class="c1">###    Date:2018-08-24</span>
+<span class="c1">###   Time:09:00 GMT</span>
+<span class="c1">###  Author:nianhua</span>
+<span class="c1">###</span>
 
-from ngram_score import *
+<span class="kn">from</span> <span class="nn">ngram_score</span> <span class="kn">import</span> <span class="o">*</span>
 
-fitness = ngram_score(&#39;quadgrams.txt&#39;)
-alphabetb = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;
-alphabets = &quot;abcdefghijklmnopqrstuvwxyz&quot;
-scoretmp = []
-newliste = []
-ciphertext = input(&quot;请输入要破解的密码:&quot;)
+<span class="n">fitness</span> <span class="o">=</span> <span class="n">ngram_score</span><span class="p">(</span><span class="s1">&#39;quadgrams.txt&#39;</span><span class="p">)</span>
+<span class="n">alphabetb</span> <span class="o">=</span> <span class="s2">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span>
+<span class="n">alphabets</span> <span class="o">=</span> <span class="s2">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
+<span class="n">scoretmp</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">newliste</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ciphertext</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入要破解的密码:&quot;</span><span class="p">)</span>
 
-def caser(i):
-    plaintext =&quot;&quot;
-    for j in ciphertext:
-        if 64 &lt; ord(j) &lt; 91:
-            plaintext += alphabetb[alphabetb.find(j)-i-1]
-        elif 96 &lt; ord(j) &lt;123:
-            plaintext += alphabets[alphabets.find(j)-i-1]
-        else:
-            plaintext += j
-    return plaintext
+<span class="k">def</span> <span class="nf">caser</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
+    <span class="n">plaintext</span> <span class="o">=</span><span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">ciphertext</span><span class="p">:</span>
+        <span class="k">if</span> <span class="mi">64</span> <span class="o">&lt;</span> <span class="nb">ord</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">91</span><span class="p">:</span>
+            <span class="n">plaintext</span> <span class="o">+=</span> <span class="n">alphabetb</span><span class="p">[</span><span class="n">alphabetb</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">elif</span> <span class="mi">96</span> <span class="o">&lt;</span> <span class="nb">ord</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;</span><span class="mi">123</span><span class="p">:</span>
+            <span class="n">plaintext</span> <span class="o">+=</span> <span class="n">alphabets</span><span class="p">[</span><span class="n">alphabets</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plaintext</span> <span class="o">+=</span> <span class="n">j</span>
+    <span class="k">return</span> <span class="n">plaintext</span>
 
-def main():
-    for i in range(26):
-        scoretmp.append([])
-        plaintext = caser(i) 
-        scoretmp[i].append(i)
-        scoretmp[i].append(plaintext)
-        scoretmp[i].append(fitness.score(&#39;&#39;.join(list(filter(str.isalpha,plaintext))).upper()))
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">26</span><span class="p">):</span>
+        <span class="n">scoretmp</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+        <span class="n">plaintext</span> <span class="o">=</span> <span class="n">caser</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> 
+        <span class="n">scoretmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+        <span class="n">scoretmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">plaintext</span><span class="p">)</span>
+        <span class="n">scoretmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fitness</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">isalpha</span><span class="p">,</span><span class="n">plaintext</span><span class="p">)))</span><span class="o">.</span><span class="n">upper</span><span class="p">()))</span>
 
-    for i in range(26):
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">26</span><span class="p">):</span>
 
-        scorevi = -99e9
-        goodvi = 0
-        for j in scoretmp:
-            if j[2] &gt; scorevi:
-                scorevi = j[2]
-                goodvi = j[0]
-        newliste.append(scoretmp[goodvi][:])
-        scoretmp[goodvi][2] = -99e9
-        print(&quot;%2d:%4.2f:%s&quot;%(newliste[i][0],newliste[i][2],newliste[i][1]))
+        <span class="n">scorevi</span> <span class="o">=</span> <span class="o">-</span><span class="mf">99e9</span>
+        <span class="n">goodvi</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">scoretmp</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">j</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">scorevi</span><span class="p">:</span>
+                <span class="n">scorevi</span> <span class="o">=</span> <span class="n">j</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="n">goodvi</span> <span class="o">=</span> <span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">newliste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scoretmp</span><span class="p">[</span><span class="n">goodvi</span><span class="p">][:])</span>
+        <span class="n">scoretmp</span><span class="p">[</span><span class="n">goodvi</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">99e9</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%2d</span><span class="s2">:</span><span class="si">%4.2f</span><span class="s2">:</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">newliste</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">newliste</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span><span class="n">newliste</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
 
 
-if &quot;__main__&quot; == __name__:
+<span class="k">if</span> <span class="s2">&quot;__main__&quot;</span> <span class="o">==</span> <span class="vm">__name__</span><span class="p">:</span>
 
-    main()
+    <span class="n">main</span><span class="p">()</span>
 </pre></div>
                 
                   
