@@ -858,6 +858,13 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    凯撒密码的密码分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     凯撒密码的程序实现
   </a>
   
@@ -1069,6 +1076,13 @@
       
         <li class="md-nav__item">
   <a href="#_4" class="md-nav__link">
+    凯撒密码的密码分析
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
     凯撒密码的程序实现
   </a>
   
@@ -1121,7 +1135,8 @@ ciphertext: efgfoe uif fbtu xbmm pg uif dbtumf
 <p>解密的数学描述如下：</p>
 <p style="text-align:center;"><img width="200px" src="../image/Caesar-4.png" /></p>
 
-<h2 id="_4">凯撒密码的程序实现<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_4">凯撒密码的密码分析<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<h2 id="_5">凯撒密码的程序实现<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
 <div class="admonition tip">
 <p class="admonition-title">注意</p>
 <p><strong>该程序需要配合文本表征中的ngram_score评分模块，以及quadgrams字典。请移步至<a href="http://crypto-wiki.io/ClassicalCrypto/Quadgram/">四元组统计</a>。</strong></p>
@@ -1177,6 +1192,14 @@ ciphertext: efgfoe uif fbtu xbmm pg uif dbtumf
 
     <span class="n">main</span><span class="p">()</span>
 </pre></div>
+
+<div class="admonition tip">
+<p class="admonition-title">举例</p>
+<p><strong>请使用程序破解这段密文：<code>Yvccf Nficu</code></strong></p>
+</div>
+<p>查看程序运行结果：
+<p style="text-align:center;"><img width="600px" src="../image/Caesar-5.jpg" /></p></p>
+<p>程序通过爆破凯撒密码的密钥，并对解密出来的文本进行评分，按照评分高低进行排序。</p>
                 
                   
                 
