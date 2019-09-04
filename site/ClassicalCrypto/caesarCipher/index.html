@@ -1122,6 +1122,61 @@ ciphertext: efgfoe uif fbtu xbmm pg uif dbtumf
 <p style="text-align:center;"><img width="200px" src="../image/Caesar-4.png" /></p>
 
 <h2 id="_4">凯撒密码的程序实现<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">注意</p>
+<p><strong>该程序需要配合文本表征中的ngram_score评分模块，以及quadgrams字典。请移步至<a href="http://crypto-wiki.io/ClassicalCrypto/Quadgram/">四元组统计</a>。</strong></p>
+</div>
+<div class="codehilite"><pre><span></span>###
+###    Date:2018-08-24
+###   Time:09:00 GMT
+###  Author:nianhua
+###
+
+from ngram_score import *
+
+fitness = ngram_score(&#39;quadgrams.txt&#39;)
+alphabetb = &quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;
+alphabets = &quot;abcdefghijklmnopqrstuvwxyz&quot;
+scoretmp = []
+newliste = []
+ciphertext = input(&quot;请输入要破解的密码:&quot;)
+
+def caser(i):
+    plaintext =&quot;&quot;
+    for j in ciphertext:
+        if 64 &lt; ord(j) &lt; 91:
+            plaintext += alphabetb[alphabetb.find(j)-i-1]
+        elif 96 &lt; ord(j) &lt;123:
+            plaintext += alphabets[alphabets.find(j)-i-1]
+        else:
+            plaintext += j
+    return plaintext
+
+def main():
+    for i in range(26):
+        scoretmp.append([])
+        plaintext = caser(i) 
+        scoretmp[i].append(i)
+        scoretmp[i].append(plaintext)
+        scoretmp[i].append(fitness.score(&#39;&#39;.join(list(filter(str.isalpha,plaintext))).upper()))
+
+    for i in range(26):
+
+        scorevi = -99e9
+        goodvi = 0
+        for j in scoretmp:
+            if j[2] &gt; scorevi:
+                scorevi = j[2]
+                goodvi = j[0]
+        newliste.append(scoretmp[goodvi][:])
+        scoretmp[goodvi][2] = -99e9
+        print(&quot;%2d:%4.2f:%s&quot;%(newliste[i][0],newliste[i][2],newliste[i][1]))
+
+
+if &quot;__main__&quot; == __name__:
+
+    main()
+</pre></div>
                 
                   
                 
