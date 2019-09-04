@@ -856,20 +856,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    凯撒密码的密码分析
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    凯撒密码的程序实现
-  </a>
-  
-</li>
-      
       
       
       
@@ -1074,20 +1060,6 @@
   
 </li>
       
-        <li class="md-nav__item">
-  <a href="#_4" class="md-nav__link">
-    凯撒密码的密码分析
-  </a>
-  
-</li>
-      
-        <li class="md-nav__item">
-  <a href="#_5" class="md-nav__link">
-    凯撒密码的程序实现
-  </a>
-  
-</li>
-      
       
       
       
@@ -1133,74 +1105,7 @@ ciphertext: efgfoe uif fbtu xbmm pg uif dbtumf
 
 <p>其中k是密钥（每次加密使用的位移）。使用这个公式加密后的结果为数字，我们需要再将其转换为字母。</p>
 <p>解密的数学描述如下：</p>
-<p style="text-align:center;"><img width="200px" src="../image/Caesar-4.png" /></p>
-
-<h2 id="_4">凯撒密码的密码分析<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
 <p>lll</p>
-<h2 id="_5">凯撒密码的程序实现<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
-<div class="admonition tip">
-<p class="admonition-title">注意</p>
-<p><strong>该程序需要配合文本表征中的ngram_score评分模块，以及quadgrams字典。请移步至<a href="http://crypto-wiki.io/ClassicalCrypto/Quadgram/">四元组统计</a>。</strong></p>
-</div>
-<div class="codehilite"><pre><span></span><span class="c1">###</span>
-<span class="c1">###    Date:2018-08-24</span>
-<span class="c1">###   Time:09:00 GMT</span>
-<span class="c1">###  Author:nianhua</span>
-<span class="c1">###</span>
-
-<span class="kn">from</span> <span class="nn">ngram_score</span> <span class="kn">import</span> <span class="o">*</span>
-
-<span class="n">fitness</span> <span class="o">=</span> <span class="n">ngram_score</span><span class="p">(</span><span class="s1">&#39;quadgrams.txt&#39;</span><span class="p">)</span>
-<span class="n">alphabetb</span> <span class="o">=</span> <span class="s2">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span>
-<span class="n">alphabets</span> <span class="o">=</span> <span class="s2">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
-<span class="n">scoretmp</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">newliste</span> <span class="o">=</span> <span class="p">[]</span>
-<span class="n">ciphertext</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入要破解的密码:&quot;</span><span class="p">)</span>
-
-<span class="k">def</span> <span class="nf">caser</span><span class="p">(</span><span class="n">i</span><span class="p">):</span>
-    <span class="n">plaintext</span> <span class="o">=</span><span class="s2">&quot;&quot;</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">ciphertext</span><span class="p">:</span>
-        <span class="k">if</span> <span class="mi">64</span> <span class="o">&lt;</span> <span class="nb">ord</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">91</span><span class="p">:</span>
-            <span class="n">plaintext</span> <span class="o">+=</span> <span class="n">alphabetb</span><span class="p">[</span><span class="n">alphabetb</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">elif</span> <span class="mi">96</span> <span class="o">&lt;</span> <span class="nb">ord</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;</span><span class="mi">123</span><span class="p">:</span>
-            <span class="n">plaintext</span> <span class="o">+=</span> <span class="n">alphabets</span><span class="p">[</span><span class="n">alphabets</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">-</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        <span class="k">else</span><span class="p">:</span>
-            <span class="n">plaintext</span> <span class="o">+=</span> <span class="n">j</span>
-    <span class="k">return</span> <span class="n">plaintext</span>
-
-<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">26</span><span class="p">):</span>
-        <span class="n">scoretmp</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
-        <span class="n">plaintext</span> <span class="o">=</span> <span class="n">caser</span><span class="p">(</span><span class="n">i</span><span class="p">)</span> 
-        <span class="n">scoretmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
-        <span class="n">scoretmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">plaintext</span><span class="p">)</span>
-        <span class="n">scoretmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fitness</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">isalpha</span><span class="p">,</span><span class="n">plaintext</span><span class="p">)))</span><span class="o">.</span><span class="n">upper</span><span class="p">()))</span>
-
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">26</span><span class="p">):</span>
-
-        <span class="n">scorevi</span> <span class="o">=</span> <span class="o">-</span><span class="mf">99e9</span>
-        <span class="n">goodvi</span> <span class="o">=</span> <span class="mi">0</span>
-        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">scoretmp</span><span class="p">:</span>
-            <span class="k">if</span> <span class="n">j</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">scorevi</span><span class="p">:</span>
-                <span class="n">scorevi</span> <span class="o">=</span> <span class="n">j</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
-                <span class="n">goodvi</span> <span class="o">=</span> <span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
-        <span class="n">newliste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scoretmp</span><span class="p">[</span><span class="n">goodvi</span><span class="p">][:])</span>
-        <span class="n">scoretmp</span><span class="p">[</span><span class="n">goodvi</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">99e9</span>
-        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%2d</span><span class="s2">:</span><span class="si">%4.2f</span><span class="s2">:</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">newliste</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">newliste</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span><span class="n">newliste</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
-
-
-<span class="k">if</span> <span class="s2">&quot;__main__&quot;</span> <span class="o">==</span> <span class="vm">__name__</span><span class="p">:</span>
-
-    <span class="n">main</span><span class="p">()</span>
-</pre></div>
-
-<div class="admonition tip">
-<p class="admonition-title">举例</p>
-<p><strong>请使用程序破解这段密文：<code>Yvccf Nficu</code></strong></p>
-</div>
-<p>查看程序运行结果：
-<p style="text-align:center;"><img width="600px" src="../image/Caesar-5.jpg" /></p></p>
-<p>程序通过爆破凯撒密码的密钥，并对解密出来的文本进行评分，按照评分高低进行排序。</p>
                 
                   
                 
