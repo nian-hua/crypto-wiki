@@ -1,0 +1,95 @@
+site_name: crypto-wiki
+site_description: crypto
+site_author: nianhua
+
+repo_name: 'crypto-wiki'
+repo_url: 'https://github.com/nian-hua/BurpExtender'
+
+theme:
+    name: 'material'
+    logo:
+        icon: 'school'
+    feature:
+        tabs: true
+    palette:
+        primary: Blue Grey
+        accent: Pink
+    # Don't include MkDocs' JavaScript
+    include_search_page: false
+    search_index_only: true
+
+markdown_extensions:
+    - admonition
+    - codehilite:
+        guess_lang: false
+        linenums: false
+    - toc:
+        permalink: true
+    - footnotes
+    - meta
+    - def_list
+    - pymdownx.arithmatex
+    - pymdownx.betterem:
+        smart_enable: all
+    - pymdownx.caret
+    - pymdownx.critic
+    - pymdownx.details
+    - pymdownx.emoji:
+        emoji_generator: !!python/name:pymdownx.emoji.to_png
+    - pymdownx.inlinehilite
+    - pymdownx.magiclink
+    - pymdownx.mark
+    - pymdownx.smartsymbols
+    - pymdownx.superfences
+    - pymdownx.tasklist
+    - pymdownx.tilde
+
+
+nav:
+- 密码学简介:
+    - 密码学简介: index.md
+- 编码与解码:
+    - 简介: 'EncodeDecode/introduction.md'
+    - ASCII编码: 'EncodeDecode/ascii.md'
+    - Base64编码: 'EncodeDecode/base64.md'
+    - Base32编码: 'EncodeDecode/base32.md'
+    - Base16编码: 'EncodeDecode/base16.md'
+    - XXencode编码: 'EncodeDecode/XXencode.md'
+    - UUencode编码: 'EncodeDecode/UUencode.md'
+    - URL编码: 'EncodeDecode/URL.md'
+    - Unicode编码: 'EncodeDecode/Unicode.md'
+    - 欢迎补充: 'EncodeDecode/welcome.md'
+- 古典密码学:
+    - 古典密码学浅析: 'ClassicalCrypto/introduction.md'
+    - 古典密码学分类: 
+        - 置换密码: 'ClassicalCrypto/transposition.md'
+        - 替换密码: 'ClassicalCrypto/substitution.md'
+    - 古典密码学常见的攻击方式: 'ClassicalCrypto/AttackMethod.md'
+    - 置换密码: 
+        - 密码棒密码: 'ClassicalCrypto/cryptoBar.md'
+        - 转置密码: 'ClassicalCrypto/tarnscrypto.md'
+        - 栅栏密码: 'ClassicalCrypto/RailFenceCipher.md'
+        - 曲路密码: 'ClassicalCrypto/routecipher.md'
+        - 列移位密码: 'ClassicalCrypto/Transpcipher.md'
+        - 其他密码: 'ClassicalCrypto/othercrypto.md'
+    - 文本表征: 
+        - 文本表征简介: 'ClassicalCrypto/Characterisation.md'
+        - 卡方统计: 'ClassicalCrypto/Chi-squared.md'
+        - 重合指数: 'ClassicalCrypto/IndexofCoincidence.md'
+        - 频率分析: 'ClassicalCrypto/frequencyAnalysis.md'
+        - 四元组统计: 'ClassicalCrypto/Quadgram.md'
+        - 唯一解距离: 'ClassicalCrypto/UnicityDistance.md'
+        - 单词统计: 'ClassicalCrypto/WordStatistics.md'
+    - 替换密码:
+        - 埃特巴什码: 'ClassicalCrypto/AtbashCipher.md'
+        - 凯撒密码: 'ClassicalCrypto/caesarCipher.md'
+        - 简单替换密码: 'EncodeDecode/welcome.md'
+        - 维吉尼亚密码: 'EncodeDecode/welcome.md'
+        - ZXXX密码: 'EncodeDecode/welcome.md'
+    - 欢迎补充: 'EncodeDecode/welcome.md'
+- 现代密码学:
+    - 现代密码学: index1.md
+    - 现代密码学: index1.md
+- About:
+    - About: index4.md
+    - About: index4.md
