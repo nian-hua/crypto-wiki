@@ -36,6 +36,9 @@ ciphertext: efgfoe uif fbtu xbmm pg uif dbtumf
 
 <p style="text-align:center;"><img width="200px" src="../image/Caesar-4.png" /></p>
 
+## 凯撒密码的密码分析
+
+
 ## 凯撒密码的程序实现
 
 !!! Tip "注意"
@@ -94,3 +97,13 @@ if "__main__" == __name__:
 
     main()
 ```
+
+!!! Tip "举例"
+
+	**请使用程序破解这段密文：`Yvccf Nficu`**
+
+
+查看程序运行结果：
+<p style="text-align:center;"><img width="600px" src="../image/Caesar-5.jpg" /></p>
+
+程序通过爆破凯撒密码的密钥，并对解密出来的文本进行评分，按照评分高低进行排序。
