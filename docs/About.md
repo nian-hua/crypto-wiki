@@ -5,6 +5,8 @@
 
 同时写下这个博客，是为了能让更少的人走弯路。
 
+![qrcode](images/qrcode.png)
+
 最后送大家一段励志名言共勉：`Fdmh bxcwuh,Fdmh yvvngfb.`
 
 **Ps.密文太短，可能解不出来~大家加油！！（解出来的欢迎下方留言）**
