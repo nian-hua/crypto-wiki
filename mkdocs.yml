@@ -109,5 +109,9 @@ nav:
     - 欢迎补充: 'ClassicalCipher/welcome.md'
 - 现代密码学: 
     - 现代密码学浅析: 'ModernCipher/introduction.md'
+    - 对称加密:
+        - 流密码: 'EncodeDecode/welcome.md'
+        - 块密码: 'EncodeDecode/welcome.md'
+    - 非对称加密: 'EncodeDecode/welcome.md'
 - Fdmh bxcwuh Fdmh yvvngfb:
     - 关于我们: About.md
