@@ -14,7 +14,7 @@ ASCII编码是美国信息交换标准代码，主要用于显示现代英语和
 
 ## ASCII字符集
 
-![ascii_code_chart](image/ascii_code_char.jpeg)
+![ascii code chart](image/ascii-1.jpeg)
 
 举个例子:
 

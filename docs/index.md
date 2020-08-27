@@ -27,3 +27,23 @@ crypto-wiki中主要包括了CTF中常见的编解码方式、加解密方式以
 | 已知明文攻击 | 拥有密文与对应的明文                       |
 | 选择明文攻击 | 拥有加密权限，能够对明文加密后获得相应密文 |
 | 选择密文攻击 | 拥有解密权限，能够对密文解密后获得相应明文 |
+
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.css">
+<div id="gitalk-container"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1/dist/gitalk.min.js"></script>
+<script>
+var str=location.pathname.slice(0,-1);
+var obj=str.lastIndexOf("/");
+var gitalk = new Gitalk({
+  clientID: 'e85a79662384a39231e9',
+  clientSecret: 'fb5aaa0a353e51ef239e5a6d4a9c05ab186af177',
+  repo: 'crypto-wiki',
+  owner: 'nian-hua',
+  admin: ['nian-hua'],
+  id: str.substr(obj+1),      // Ensure uniqueness and length less than 50
+  distractionFreeMode: false  // Facebook-like distraction free mode
+})
+gitalk.render('gitalk-container')
+console.log(str.substr(obj+1))
+</script>

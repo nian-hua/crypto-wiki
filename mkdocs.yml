@@ -60,36 +60,58 @@ nav:
     - Unicode编码: 'EncodeDecode/Unicode.md'
     - 欢迎补充: 'EncodeDecode/welcome.md'
 - 古典密码学:
-    - 古典密码学浅析: 'ClassicalCrypto/introduction.md'
+    - 古典密码学浅析: 'ClassicalCipher/introduction.md'
     - 古典密码学分类: 
-        - 置换密码: 'ClassicalCrypto/transposition.md'
-        - 替换密码: 'ClassicalCrypto/substitution.md'
-    - 古典密码学常见的攻击方式: 'ClassicalCrypto/AttackMethod.md'
-    - 置换密码: 
-        - 密码棒密码: 'ClassicalCrypto/cryptoBar.md'
-        - 转置密码: 'ClassicalCrypto/tarnscrypto.md'
-        - 栅栏密码: 'ClassicalCrypto/RailFenceCipher.md'
-        - 曲路密码: 'ClassicalCrypto/routecipher.md'
-        - 列移位密码: 'ClassicalCrypto/Transpcipher.md'
-        - 其他密码: 'ClassicalCrypto/othercrypto.md'
-    - 文本表征: 
-        - 文本表征简介: 'ClassicalCrypto/Characterisation.md'
-        - 卡方统计: 'ClassicalCrypto/Chi-squared.md'
-        - 重合指数: 'ClassicalCrypto/IndexofCoincidence.md'
-        - 频率分析: 'ClassicalCrypto/frequencyAnalysis.md'
-        - 四元组统计: 'ClassicalCrypto/Quadgram.md'
-        - 唯一解距离: 'ClassicalCrypto/UnicityDistance.md'
-        - 单词统计: 'ClassicalCrypto/WordStatistics.md'
+        - 换位密码: 'ClassicalCipher/TranspositionCiphers/introduction.md'
+        - 替换密码: 'ClassicalCipher/SubstitutionCiphers/introduction.md'
+        - 分组密码: 'ClassicalCipher/FractionatingCiphers/introduction.md'
+        - 有向图密码: 'ClassicalCipher/DigraphSubstitutionCiphers/introduction.md'
+        - 密码分析: 'ClassicalCipher/Cryptanalysis/introduction.md'
+        - 隐写密码: 'ClassicalCipher/Steganography/introduction.md'
+    - 换位密码: 
+        - 密码棒密码: 'ClassicalCipher/TranspositionCiphers/ScytaleCrypto.md'
+        - 平移密码: 'ClassicalCipher/TranspositionCiphers/pingyi.md'
+        - 栅栏密码: 'ClassicalCipher/TranspositionCiphers/RailFenceCipher.md'
+        - 曲路密码: 'ClassicalCipher/TranspositionCiphers/RouteCipher.md'
+        - 列换位密码: 'ClassicalCipher/TranspositionCiphers/ColumnarTranspositionCipher.md'
+        - 双列换位密码: 'ClassicalCipher/TranspositionCiphers/DoubleColumnarTranspositionCipher.md'
+        - 中断换位密码: 'ClassicalCipher/TranspositionCiphers/DisruptedTranspositionCipher.md'
     - 替换密码:
-        - 埃特巴什码: 'ClassicalCrypto/AtbashCipher.md'
-        - 凯撒密码: 'ClassicalCrypto/caesarCipher.md'
-        - 简单替换密码: 'EncodeDecode/welcome.md'
-        - 维吉尼亚密码: 'EncodeDecode/welcome.md'
-        - ZXXX密码: 'EncodeDecode/welcome.md'
-    - 欢迎补充: 'EncodeDecode/welcome.md'
-- 现代密码学:
-    - 现代密码学: index1.md
-    - 现代密码学: index1.md
-- About:
-    - About: index4.md
-    - About: index4.md
+        - 猪圈密码: 'ClassicalCipher/SubstitutionCiphers/PigpenCipher.md'
+        - 埃特巴什码: 'ClassicalCipher/SubstitutionCiphers/AtbashCipher.md'
+        - 凯撒密码: 'ClassicalCipher/SubstitutionCiphers/CaesarCipher.md'
+        - 仿射密码: 'ClassicalCipher/SubstitutionCiphers/AffineCipher.md'
+        - 简单替换密码: 'ClassicalCipher/SubstitutionCiphers/SimpleSubstitutionCipher.md'
+        - 维吉尼亚密码: 'ClassicalCipher/SubstitutionCiphers/VigenereCipher.md'
+    - 分组密码:
+        - 波利比奥斯方阵密码: 'ClassicalCipher/FractionatingCiphers/PolybiusSquareCipher.md'
+        - 跨棋盘密码: 'ClassicalCipher/FractionatingCiphers/StraddleCheckerboardCipher.md'
+        - ADFGX密码: 'ClassicalCipher/FractionatingCiphers/ADFGXCipher.md'
+        - ADFGVX密码: 'ClassicalCipher/FractionatingCiphers/ADFGVXCipher.md'
+        - 双密码: 'ClassicalCipher/FractionatingCiphers/BifidCipher.md'
+        - 分组摩斯密码: 'ClassicalCipher/FractionatingCiphers/FractionatedMorseCipher.md'
+    - 有向图密码:
+        - 普莱费尔密码: 'ClassicalCipher/DigraphSubstitutionCiphers/PlayfairCipher.md'
+        - 二方密码: 'ClassicalCipher/DigraphSubstitutionCiphers/Two-SquareCipher.md'
+        - 四方密码: 'ClassicalCipher/DigraphSubstitutionCiphers/Four-SquareCipher.md'
+        - 希尔密码: 'ClassicalCipher/DigraphSubstitutionCiphers/HillCipher.md'
+    - 密码分析: 
+        - 文本表征简介: 'ClassicalCipher/Cryptanalysis/Characterisation.md'
+        - 卡方统计: 'ClassicalCipher/Cryptanalysis/Chi-squared.md'
+        - 重合指数: 'ClassicalCipher/Cryptanalysis/IndexofCoincidence.md'
+        - 频率分析: 'ClassicalCipher/Cryptanalysis/FrequencyAnalysis.md'
+        - 四元组统计: 'ClassicalCipher/Cryptanalysis/Quadgram.md'
+        - 唯一解距离: 'ClassicalCipher/Cryptanalysis/UnicityDistance.md'
+        - 单词统计: 'ClassicalCipher/Cryptanalysis/WordStatistics.md'
+    - 隐写密码:
+        - 培根密码: 'ClassicalCipher/Steganography/BaconCipher.md'
+        - 格栅密码: 'ClassicalCipher/Steganography/GrilleCipher.md'
+    - 欢迎补充: 'ClassicalCipher/welcome.md'
+- 现代密码学: 
+    - 现代密码学浅析: 'ModernCipher/introduction.md'
+    - 对称加密:
+        - 流密码: 'EncodeDecode/welcome.md'
+        - 块密码: 'EncodeDecode/welcome.md'
+    - 非对称加密: 'EncodeDecode/welcome.md'
+- Fdmh bxcwuh Fdmh yvvngfb:
+    - 关于我们: About.md
