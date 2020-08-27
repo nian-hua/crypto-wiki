@@ -1,0 +1,1576 @@
+
+
+
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      <meta http-equiv="x-ua-compatible" content="ie=edge">
+      
+        <meta name="description" content="crypto">
+      
+      
+      
+        <meta name="author" content="nianhua">
+      
+      
+        <meta name="lang:clipboard.copy" content="Copy to clipboard">
+      
+        <meta name="lang:clipboard.copied" content="Copied to clipboard">
+      
+        <meta name="lang:search.language" content="en">
+      
+        <meta name="lang:search.pipeline.stopwords" content="True">
+      
+        <meta name="lang:search.pipeline.trimmer" content="True">
+      
+        <meta name="lang:search.result.none" content="No matching documents">
+      
+        <meta name="lang:search.result.one" content="1 matching document">
+      
+        <meta name="lang:search.result.other" content="# matching documents">
+      
+        <meta name="lang:search.tokenizer" content="[\s\-]+">
+      
+      <link rel="shortcut icon" href="../../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.0.4, mkdocs-material-4.4.2">
+    
+    
+      
+        <title>仿射密码 - crypto-wiki</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../../assets/stylesheets/application.30686662.css">
+      
+        <link rel="stylesheet" href="../../../assets/stylesheets/application-palette.a8b3c06d.css">
+      
+      
+        
+        
+        <meta name="theme-color" content="#546e7a">
+      
+    
+    
+      <script src="../../../assets/javascripts/modernizr.74668098.js"></script>
+    
+    
+      
+        <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,400i,700|Roboto+Mono&display=fallback">
+        <style>body,input{font-family:"Roboto","Helvetica Neue",Helvetica,Arial,sans-serif}code,kbd,pre{font-family:"Roboto Mono","Courier New",Courier,monospace}</style>
+      
+    
+    <link rel="stylesheet" href="../../../assets/fonts/material-icons.css">
+    
+    
+    
+      
+    
+    
+  </head>
+  
+    
+    
+    <body dir="ltr" data-md-color-primary="blue-grey" data-md-color-accent="pink">
+  
+    <svg class="md-svg">
+      <defs>
+        
+        
+          <svg xmlns="http://www.w3.org/2000/svg" width="416" height="448" viewBox="0 0 416 448" id="__github"><path fill="currentColor" d="M160 304q0 10-3.125 20.5t-10.75 19T128 352t-18.125-8.5-10.75-19T96 304t3.125-20.5 10.75-19T128 256t18.125 8.5 10.75 19T160 304zm160 0q0 10-3.125 20.5t-10.75 19T288 352t-18.125-8.5-10.75-19T256 304t3.125-20.5 10.75-19T288 256t18.125 8.5 10.75 19T320 304zm40 0q0-30-17.25-51T296 232q-10.25 0-48.75 5.25Q229.5 240 208 240t-39.25-2.75Q130.75 232 120 232q-29.5 0-46.75 21T56 304q0 22 8 38.375t20.25 25.75 30.5 15 35 7.375 37.25 1.75h42q20.5 0 37.25-1.75t35-7.375 30.5-15 20.25-25.75T360 304zm56-44q0 51.75-15.25 82.75-9.5 19.25-26.375 33.25t-35.25 21.5-42.5 11.875-42.875 5.5T212 416q-19.5 0-35.5-.75t-36.875-3.125-38.125-7.5-34.25-12.875T37 371.5t-21.5-28.75Q0 312 0 260q0-59.25 34-99-6.75-20.5-6.75-42.5 0-29 12.75-54.5 27 0 47.5 9.875t47.25 30.875Q171.5 96 212 96q37 0 70 8 26.25-20.5 46.75-30.25T376 64q12.75 25.5 12.75 54.5 0 21.75-6.75 42 34 40 34 99.5z"/></svg>
+        
+      </defs>
+    </svg>
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" data-md-component="overlay" for="__drawer"></label>
+    
+      <a href="#_1" tabindex="1" class="md-skip">
+        Skip to content
+      </a>
+    
+    
+      <header class="md-header" data-md-component="header">
+  <nav class="md-header-nav md-grid">
+    <div class="md-flex">
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <a href="../../.." title="crypto-wiki" class="md-header-nav__button md-logo">
+          
+            <i class="md-icon">school</i>
+          
+        </a>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        <label class="md-icon md-icon--menu md-header-nav__button" for="__drawer"></label>
+      </div>
+      <div class="md-flex__cell md-flex__cell--stretch">
+        <div class="md-flex__ellipsis md-header-nav__title" data-md-component="title">
+          
+            <span class="md-header-nav__topic">
+              crypto-wiki
+            </span>
+            <span class="md-header-nav__topic">
+              
+                仿射密码
+              
+            </span>
+          
+        </div>
+      </div>
+      <div class="md-flex__cell md-flex__cell--shrink">
+        
+          <label class="md-icon md-icon--search md-header-nav__button" for="__search"></label>
+          
+<div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="query" data-md-state="active">
+      <label class="md-icon md-search__icon" for="__search"></label>
+      <button type="reset" class="md-icon md-search__icon" data-md-component="reset" tabindex="-1">
+        &#xE5CD;
+      </button>
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="result">
+          <div class="md-search-result__meta">
+            Type to start searching
+          </div>
+          <ol class="md-search-result__list"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+        
+      </div>
+      
+        <div class="md-flex__cell md-flex__cell--shrink">
+          <div class="md-header-nav__source">
+            
+
+
+  
+
+<a href="https://github.com/nian-hua/crypto-wiki/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    crypto-wiki
+  </div>
+</a>
+          </div>
+        </div>
+      
+    </div>
+  </nav>
+</header>
+    
+    <div class="md-container">
+      
+        
+      
+      
+        
+
+  
+
+<nav class="md-tabs md-tabs--active" data-md-component="tabs">
+  <div class="md-tabs__inner md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../.." class="md-tabs__link">
+          密码学简介
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../EncodeDecode/introduction/" class="md-tabs__link">
+          编码与解码
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../introduction/" class="md-tabs__link md-tabs__link--active">
+          古典密码学
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../ModernCipher/introduction/" class="md-tabs__link">
+          现代密码学
+        </a>
+      
+    </li>
+  
+
+      
+        
+  
+  
+    <li class="md-tabs__item">
+      
+        <a href="../../../About/" class="md-tabs__link">
+          Fdmh bxcwuh Fdmh yvvngfb
+        </a>
+      
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+      
+      <main class="md-main" role="main">
+        <div class="md-main__inner md-grid" data-md-component="container">
+          
+            
+              <div class="md-sidebar md-sidebar--primary" data-md-component="navigation">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    <nav class="md-nav md-nav--primary" data-md-level="0">
+  <label class="md-nav__title md-nav__title--site" for="__drawer">
+    <a href="../../.." title="crypto-wiki" class="md-nav__button md-logo">
+      
+        <i class="md-icon">school</i>
+      
+    </a>
+    crypto-wiki
+  </label>
+  
+    <div class="md-nav__source">
+      
+
+
+  
+
+<a href="https://github.com/nian-hua/crypto-wiki/" title="Go to repository" class="md-source" data-md-source="github">
+  
+    <div class="md-source__icon">
+      <svg viewBox="0 0 24 24" width="24" height="24">
+        <use xlink:href="#__github" width="24" height="24"></use>
+      </svg>
+    </div>
+  
+  <div class="md-source__repository">
+    crypto-wiki
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-1" type="checkbox" id="nav-1">
+    
+    <label class="md-nav__link" for="nav-1">
+      密码学简介
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-1">
+        密码学简介
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../.." title="密码学简介" class="md-nav__link">
+      密码学简介
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-2" type="checkbox" id="nav-2">
+    
+    <label class="md-nav__link" for="nav-2">
+      编码与解码
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-2">
+        编码与解码
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../EncodeDecode/introduction/" title="简介" class="md-nav__link">
+      简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../EncodeDecode/ascii/" title="ASCII编码" class="md-nav__link">
+      ASCII编码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../EncodeDecode/base64/" title="Base64编码" class="md-nav__link">
+      Base64编码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../EncodeDecode/base32/" title="Base32编码" class="md-nav__link">
+      Base32编码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../EncodeDecode/base16/" title="Base16编码" class="md-nav__link">
+      Base16编码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../EncodeDecode/XXencode/" title="XXencode编码" class="md-nav__link">
+      XXencode编码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../EncodeDecode/UUencode/" title="UUencode编码" class="md-nav__link">
+      UUencode编码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../EncodeDecode/URL/" title="URL编码" class="md-nav__link">
+      URL编码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../EncodeDecode/Unicode/" title="Unicode编码" class="md-nav__link">
+      Unicode编码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../EncodeDecode/welcome/" title="欢迎补充" class="md-nav__link">
+      欢迎补充
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3" type="checkbox" id="nav-3" checked>
+    
+    <label class="md-nav__link" for="nav-3">
+      古典密码学
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-3">
+        古典密码学
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../introduction/" title="古典密码学浅析" class="md-nav__link">
+      古典密码学浅析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-2" type="checkbox" id="nav-3-2">
+    
+    <label class="md-nav__link" for="nav-3-2">
+      古典密码学分类
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-2">
+        古典密码学分类
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../TranspositionCiphers/introduction/" title="换位密码" class="md-nav__link">
+      换位密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../introduction/" title="替换密码" class="md-nav__link">
+      替换密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../FractionatingCiphers/introduction/" title="分组密码" class="md-nav__link">
+      分组密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../DigraphSubstitutionCiphers/introduction/" title="有向图密码" class="md-nav__link">
+      有向图密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cryptanalysis/introduction/" title="密码分析" class="md-nav__link">
+      密码分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Steganography/introduction/" title="隐写密码" class="md-nav__link">
+      隐写密码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-3" type="checkbox" id="nav-3-3">
+    
+    <label class="md-nav__link" for="nav-3-3">
+      换位密码
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-3">
+        换位密码
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../TranspositionCiphers/ScytaleCrypto/" title="密码棒密码" class="md-nav__link">
+      密码棒密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../TranspositionCiphers/pingyi/" title="平移密码" class="md-nav__link">
+      平移密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../TranspositionCiphers/RailFenceCipher/" title="栅栏密码" class="md-nav__link">
+      栅栏密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../TranspositionCiphers/RouteCipher/" title="曲路密码" class="md-nav__link">
+      曲路密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../TranspositionCiphers/ColumnarTranspositionCipher/" title="列换位密码" class="md-nav__link">
+      列换位密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../TranspositionCiphers/DoubleColumnarTranspositionCipher/" title="双列换位密码" class="md-nav__link">
+      双列换位密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../TranspositionCiphers/DisruptedTranspositionCipher/" title="中断换位密码" class="md-nav__link">
+      中断换位密码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-4" type="checkbox" id="nav-3-4" checked>
+    
+    <label class="md-nav__link" for="nav-3-4">
+      替换密码
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-4">
+        替换密码
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../PigpenCipher/" title="猪圈密码" class="md-nav__link">
+      猪圈密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../AtbashCipher/" title="埃特巴什码" class="md-nav__link">
+      埃特巴什码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../CaesarCipher/" title="凯撒密码" class="md-nav__link">
+      凯撒密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+  
+
+
+  <li class="md-nav__item md-nav__item--active">
+    
+    <input class="md-toggle md-nav__toggle" data-md-toggle="toc" type="checkbox" id="__toc">
+    
+    
+      <label class="md-nav__link md-nav__link--active" for="__toc">
+        仿射密码
+      </label>
+    
+    <a href="./" title="仿射密码" class="md-nav__link md-nav__link--active">
+      仿射密码
+    </a>
+    
+      
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    仿射密码简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    仿射密码的数学描述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    仿射密码示例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    仿射密码的程序实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    仿射密码的密码分析
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+    
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../SimpleSubstitutionCipher/" title="简单替换密码" class="md-nav__link">
+      简单替换密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../VigenereCipher/" title="维吉尼亚密码" class="md-nav__link">
+      维吉尼亚密码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-5" type="checkbox" id="nav-3-5">
+    
+    <label class="md-nav__link" for="nav-3-5">
+      分组密码
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-5">
+        分组密码
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../FractionatingCiphers/PolybiusSquareCipher/" title="波利比奥斯方阵密码" class="md-nav__link">
+      波利比奥斯方阵密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../FractionatingCiphers/StraddleCheckerboardCipher/" title="跨棋盘密码" class="md-nav__link">
+      跨棋盘密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../FractionatingCiphers/ADFGXCipher/" title="ADFGX密码" class="md-nav__link">
+      ADFGX密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../FractionatingCiphers/ADFGVXCipher/" title="ADFGVX密码" class="md-nav__link">
+      ADFGVX密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../FractionatingCiphers/BifidCipher/" title="双密码" class="md-nav__link">
+      双密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../FractionatingCiphers/FractionatedMorseCipher/" title="分组摩斯密码" class="md-nav__link">
+      分组摩斯密码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-6" type="checkbox" id="nav-3-6">
+    
+    <label class="md-nav__link" for="nav-3-6">
+      有向图密码
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-6">
+        有向图密码
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../DigraphSubstitutionCiphers/PlayfairCipher/" title="普莱费尔密码" class="md-nav__link">
+      普莱费尔密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../DigraphSubstitutionCiphers/Two-SquareCipher/" title="二方密码" class="md-nav__link">
+      二方密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../DigraphSubstitutionCiphers/Four-SquareCipher/" title="四方密码" class="md-nav__link">
+      四方密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../DigraphSubstitutionCiphers/HillCipher/" title="希尔密码" class="md-nav__link">
+      希尔密码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-7" type="checkbox" id="nav-3-7">
+    
+    <label class="md-nav__link" for="nav-3-7">
+      密码分析
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-7">
+        密码分析
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cryptanalysis/Characterisation/" title="文本表征简介" class="md-nav__link">
+      文本表征简介
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cryptanalysis/Chi-squared/" title="卡方统计" class="md-nav__link">
+      卡方统计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cryptanalysis/IndexofCoincidence/" title="重合指数" class="md-nav__link">
+      重合指数
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cryptanalysis/FrequencyAnalysis/" title="频率分析" class="md-nav__link">
+      频率分析
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cryptanalysis/Quadgram/" title="四元组统计" class="md-nav__link">
+      四元组统计
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cryptanalysis/UnicityDistance/" title="唯一解距离" class="md-nav__link">
+      唯一解距离
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Cryptanalysis/WordStatistics/" title="单词统计" class="md-nav__link">
+      单词统计
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-3-8" type="checkbox" id="nav-3-8">
+    
+    <label class="md-nav__link" for="nav-3-8">
+      隐写密码
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="2">
+      <label class="md-nav__title" for="nav-3-8">
+        隐写密码
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Steganography/BaconCipher/" title="培根密码" class="md-nav__link">
+      培根密码
+    </a>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../Steganography/GrilleCipher/" title="格栅密码" class="md-nav__link">
+      格栅密码
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../welcome/" title="欢迎补充" class="md-nav__link">
+      欢迎补充
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-4" type="checkbox" id="nav-4">
+    
+    <label class="md-nav__link" for="nav-4">
+      现代密码学
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-4">
+        现代密码学
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../ModernCipher/introduction/" title="现代密码学浅析" class="md-nav__link">
+      现代密码学浅析
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+      
+      
+      
+
+
+  <li class="md-nav__item md-nav__item--nested">
+    
+      <input class="md-toggle md-nav__toggle" data-md-toggle="nav-5" type="checkbox" id="nav-5">
+    
+    <label class="md-nav__link" for="nav-5">
+      Fdmh bxcwuh Fdmh yvvngfb
+    </label>
+    <nav class="md-nav" data-md-component="collapsible" data-md-level="1">
+      <label class="md-nav__title" for="nav-5">
+        Fdmh bxcwuh Fdmh yvvngfb
+      </label>
+      <ul class="md-nav__list" data-md-scrollfix>
+        
+        
+          
+          
+          
+
+
+  <li class="md-nav__item">
+    <a href="../../../About/" title="关于我们" class="md-nav__link">
+      关于我们
+    </a>
+  </li>
+
+        
+      </ul>
+    </nav>
+  </li>
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="toc">
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+<nav class="md-nav md-nav--secondary">
+  
+  
+  
+    <label class="md-nav__title" for="__toc">Table of contents</label>
+    <ul class="md-nav__list" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#_1" class="md-nav__link">
+    仿射密码简介
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_2" class="md-nav__link">
+    仿射密码的数学描述
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_3" class="md-nav__link">
+    仿射密码示例
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_4" class="md-nav__link">
+    仿射密码的程序实现
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#_5" class="md-nav__link">
+    仿射密码的密码分析
+  </a>
+  
+</li>
+      
+      
+      
+      
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          <div class="md-content">
+            <article class="md-content__inner md-typeset">
+              
+                
+                  <a href="https://github.com/nian-hua/crypto-wiki/edit/master/docs/ClassicalCipher/SubstitutionCiphers/AffineCipher.md" title="Edit this page" class="md-icon md-content__icon">&#xE3C9;</a>
+                
+                
+                  <h1>仿射密码</h1>
+                
+                <h2 id="_1">仿射密码简介<a class="headerlink" href="#_1" title="Permanent link">&para;</a></h2>
+<p>仿射密码是一种单字母替换密码的特例。</p>
+<p>该密码不如简单替换密码安全，因为它不仅容易受到针对替代密码的所有攻击方法，而且还存在其他缺点。其主要缺点来自以下方面：如果密码分析者可以发现（通过频率分析，暴力破解，猜测或其他方式）两个密文字符对应的明文，则可以通过联立方程组来求解密钥。</p>
+<h2 id="_2">仿射密码的数学描述<a class="headerlink" href="#_2" title="Permanent link">&para;</a></h2>
+<p>仿射密码的"密钥"由2个数字组成，我们将其称为a和b。以下讨论假定使用26个字符的字母（m = 26）。a应该选择为相对于m素数（即a应该没有与m相同的公因数&lt;除1以外&gt;）。例如15和26没有公因数(除1以外)，因此15是可以用来加密的值，然而12和26具有相同公因数（例如2），这样12不能被用于加密。加密时，我们首先将所有字母转换为数字（'a'= 0，'b'= 1，...，'z'= 25）。</p>
+<p>对于密文c，给定任意的p（p是代表字母的数字），有：</p>
+<p style="text-align:center;"><img width="400px" src="../image/AffineCipher-1.png" /></p>
+
+<p>解密的公式为：</p>
+<p style="text-align:center;"><img width="200px" src="../image/AffineCipher-2.png" /></p>
+
+<p>其中a<sup>-1</sup>是a的乘法逆元，为了找到a的乘法逆元，我们需要假定数字x满足：</p>
+<p style="text-align:center;"><img width="135px" src="../image/AffineCipher-3.png" /></p>
+
+<p>如果我们发现x使得等式成立，那么X就是a的逆元，我们称之为a<sup>-1</sup>。</p>
+<p>解决此方程式最简单的方法是遍历1到25个数字，然后看哪个满足该方程式。</p>
+<p>如果您想要更严谨的解决方案，可以使用matlab查找x：</p>
+<div class="codehilite"><pre><span></span><span class="o">&gt;</span> <span class="p">[</span><span class="n">g</span><span class="p">,</span><span class="n">x</span><span class="p">,</span><span class="n">d</span><span class="p">]</span> <span class="p">=</span> <span class="nb">gcd</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">m</span><span class="p">);</span>    <span class="c">% we can ignore g and d, we dont need them</span>
+<span class="o">&gt;</span> <span class="n">x</span> <span class="p">=</span> <span class="nb">mod</span><span class="p">(</span><span class="n">x</span><span class="p">,</span><span class="n">m</span><span class="p">);</span>     
+</pre></div>
+
+<p>则x和a相乘并对26求余的结果为1。(以上都是定义，记住即可。)</p>
+<div class="admonition tip">
+<p class="admonition-title">注意</p>
+<p><strong>m的值并非总是26，如果你的字母表中含有大写字母、小写字母、以及空格，那么m值为53</strong></p>
+</div>
+<h2 id="_3">仿射密码示例<a class="headerlink" href="#_3" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">举例</p>
+<p><strong>令密钥a=5且b=7，加密<code>defend the east wall of the castle</code></strong></p>
+</div>
+<p>我们将第一个字母'd'转换为数字3（'a'= 0，'b'= 1，...，'z'= 25）并将其代入等式中：</p>
+<p style="text-align:center;"><img width="400px" src="../image/AffineCipher-4.png" /></p>
+
+<p>因为'w'= 22，所以使用密钥a=5和b=7将'd'转换为'w'。以此类推，我们得到密文：</p>
+<div class="codehilite"><pre><span></span>wbgbuwyqbbhtynhkkzgyqbrhtykb
+</pre></div>
+
+<p>接下来进行解密，通过计算知5<sup>-1</sup>=21，即5*21=1(mod 26)，解密的公式如下：</p>
+<p style="text-align:center;"><img width="420px" src="../image/AffineCipher-5.png" /></p>
+
+<p>显而易见，我们可以依次得到明文：</p>
+<div class="codehilite"><pre><span></span>defendtheeastwallofthecastle
+</pre></div>
+
+<h2 id="_4">仿射密码的程序实现<a class="headerlink" href="#_4" title="Permanent link">&para;</a></h2>
+<div class="admonition tip">
+<p class="admonition-title">注意</p>
+<p><strong>可以使用<code>pip install pycipher</code>安装pycipher模块</strong></p>
+</div>
+<div class="codehilite"><pre><span></span><span class="o">&gt;&gt;&gt;</span><span class="kn">from</span> <span class="nn">pycipher</span> <span class="kn">import</span> <span class="n">Affine</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">Affine</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">encipher</span><span class="p">(</span><span class="s1">&#39;defend the east wall of the castle&#39;</span><span class="p">)</span>
+<span class="s1">&#39;YDIDWYASDDJVAPJMMBIASDTJVAMD&#39;</span>
+<span class="o">&gt;&gt;&gt;</span><span class="n">Affine</span><span class="p">(</span><span class="n">a</span><span class="o">=</span><span class="mi">5</span><span class="p">,</span><span class="n">b</span><span class="o">=</span><span class="mi">9</span><span class="p">)</span><span class="o">.</span><span class="n">decipher</span><span class="p">(</span><span class="s1">&#39;YDIDWYASDDJVAPJMMBIASDTJVAMD&#39;</span><span class="p">)</span>
+<span class="s1">&#39;DEFENDTHEEASTWALLOFTHECASTLE&#39;</span>
+</pre></div>
+
+<p>运行示例：</p>
+<p style="text-align:center;"><img width="500px" src="../image/AffineCipher-6.png" /></p>
+
+<h2 id="_5">仿射密码的密码分析<a class="headerlink" href="#_5" title="Permanent link">&para;</a></h2>
+<p>仿射密码比凯撒密码稍微复杂一些，但并没有提供更多的安全性。其密钥空间仅为311（12*26-1），对于计算机而言，很容易通过遍历所有的密钥来进行解密，并找到最佳密钥。</p>
+<p>因此我们使用暴力破解，必须尝试使用每个密钥解密，然后每段解密后文本的可读性。</p>
+<p>仿射密码有两个密钥，a和b。b的范围可从0~25，a的值可以为：<code>1,3,5,7,9,11,15,17,19,21,23,25</code>,我们遍历所有的组合，通过评分模块最后选择最有可能的密钥。</p>
+<div class="admonition tip">
+<p class="admonition-title">注意</p>
+<p><strong>该程序需要配合密码分析文本表征中的ngram_score评分模块，以及quadgrams字典。请移步至<a href="http://crypto-wiki.io/ClassicalCipher/Cryptanalysis/Quadgram/">四元组统计</a>。</strong></p>
+</div>
+<div class="codehilite"><pre><span></span><span class="kn">from</span> <span class="nn">ngram_score</span> <span class="kn">import</span> <span class="o">*</span>
+
+<span class="n">fitness</span> <span class="o">=</span> <span class="n">ngram_score</span><span class="p">(</span><span class="s1">&#39;quadgrams.txt&#39;</span><span class="p">)</span>
+<span class="n">alphabetb</span> <span class="o">=</span> <span class="s2">&quot;ABCDEFGHIJKLMNOPQRSTUVWXYZ&quot;</span>
+<span class="n">alphabets</span> <span class="o">=</span> <span class="s2">&quot;abcdefghijklmnopqrstuvwxyz&quot;</span>
+<span class="n">scoretmp</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">newliste</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">ciphertext</span> <span class="o">=</span> <span class="nb">input</span><span class="p">(</span><span class="s2">&quot;请输入要破解的密码:&quot;</span><span class="p">)</span>
+
+
+<span class="k">def</span> <span class="nf">affine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">):</span>
+
+    <span class="n">plaintext</span> <span class="o">=</span><span class="s2">&quot;&quot;</span>
+    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">ciphertext</span><span class="p">:</span>
+        <span class="k">if</span> <span class="mi">64</span> <span class="o">&lt;</span> <span class="nb">ord</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;</span> <span class="mi">91</span><span class="p">:</span>
+            <span class="n">plaintext</span> <span class="o">+=</span> <span class="n">alphabetb</span><span class="p">[(</span><span class="n">alphabetb</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">%</span><span class="nb">len</span><span class="p">(</span><span class="n">alphabetb</span><span class="p">)]</span>
+        <span class="k">elif</span> <span class="mi">96</span> <span class="o">&lt;</span> <span class="nb">ord</span><span class="p">(</span><span class="n">j</span><span class="p">)</span> <span class="o">&lt;</span><span class="mi">123</span><span class="p">:</span>
+            <span class="n">plaintext</span> <span class="o">+=</span> <span class="n">alphabets</span><span class="p">[(</span><span class="n">alphabets</span><span class="o">.</span><span class="n">find</span><span class="p">(</span><span class="n">j</span><span class="p">)</span><span class="o">*</span><span class="n">a</span><span class="o">+</span><span class="n">b</span><span class="p">)</span><span class="o">%</span><span class="nb">len</span><span class="p">(</span><span class="n">alphabets</span><span class="p">)]</span>
+        <span class="k">else</span><span class="p">:</span>
+            <span class="n">plaintext</span> <span class="o">+=</span> <span class="n">j</span>
+    <span class="k">return</span> <span class="n">plaintext</span>
+
+
+
+<span class="k">def</span> <span class="nf">main</span><span class="p">():</span>
+    <span class="n">i</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">a</span> <span class="ow">in</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span><span class="mi">3</span><span class="p">,</span><span class="mi">5</span><span class="p">,</span><span class="mi">7</span><span class="p">,</span><span class="mi">9</span><span class="p">,</span><span class="mi">11</span><span class="p">,</span><span class="mi">15</span><span class="p">,</span><span class="mi">17</span><span class="p">,</span><span class="mi">19</span><span class="p">,</span><span class="mi">21</span><span class="p">,</span><span class="mi">23</span><span class="p">,</span><span class="mi">25</span><span class="p">]:</span>
+        <span class="k">for</span> <span class="n">b</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">26</span><span class="p">):</span>
+            <span class="n">scoretmp</span><span class="o">.</span><span class="n">append</span><span class="p">([])</span>
+            <span class="n">plaintext</span> <span class="o">=</span> <span class="n">affine</span><span class="p">(</span><span class="n">a</span><span class="p">,</span><span class="n">b</span><span class="p">)</span>
+            <span class="n">scoretmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+            <span class="n">scoretmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">plaintext</span><span class="p">)</span>
+            <span class="n">scoretmp</span><span class="p">[</span><span class="n">i</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">fitness</span><span class="o">.</span><span class="n">score</span><span class="p">(</span><span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">list</span><span class="p">(</span><span class="nb">filter</span><span class="p">(</span><span class="nb">str</span><span class="o">.</span><span class="n">isalpha</span><span class="p">,</span><span class="n">plaintext</span><span class="p">)))</span><span class="o">.</span><span class="n">upper</span><span class="p">()))</span>
+            <span class="n">i</span> <span class="o">=</span> <span class="n">i</span><span class="o">+</span><span class="mi">1</span>
+    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">5</span><span class="p">):</span>
+        <span class="n">scorevi</span> <span class="o">=</span> <span class="o">-</span><span class="mf">99e9</span>
+        <span class="n">goodvi</span> <span class="o">=</span> <span class="mi">0</span>
+        <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="n">scoretmp</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">j</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">scorevi</span><span class="p">:</span>
+                <span class="n">scorevi</span> <span class="o">=</span> <span class="n">j</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+                <span class="n">goodvi</span> <span class="o">=</span> <span class="n">j</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+        <span class="n">newliste</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">scoretmp</span><span class="p">[</span><span class="n">goodvi</span><span class="p">][:])</span>
+        <span class="n">scoretmp</span><span class="p">[</span><span class="n">goodvi</span><span class="p">][</span><span class="mi">2</span><span class="p">]</span> <span class="o">=</span> <span class="o">-</span><span class="mf">99e9</span>
+        <span class="k">print</span><span class="p">(</span><span class="s2">&quot;</span><span class="si">%2d</span><span class="s2">:</span><span class="si">%4.2f</span><span class="s2">:</span><span class="si">%s</span><span class="s2">&quot;</span><span class="o">%</span><span class="p">(</span><span class="n">newliste</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">],</span><span class="n">newliste</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">2</span><span class="p">],</span><span class="n">newliste</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">1</span><span class="p">]))</span>
+
+<span class="k">if</span> <span class="s2">&quot;__main__&quot;</span> <span class="o">==</span> <span class="vm">__name__</span><span class="p">:</span>
+
+    <span class="n">main</span><span class="p">()</span>
+</pre></div>
+
+<p>运行示例：</p>
+<p style="text-align:center;"><img src="../image/AffineCipher-7.png" /></p>
+
+<p>除了暴力破解之外，仿射密码的另一个缺陷是：已知任意两个密文对应的明文字符，则可以通过联立方程组来求解密钥。</p>
+<p>假设我们有一段密文。如果密文中统计量最多的两个字符是"h"和"q"，那么我们可以假定它们对应于明文中的"e"和"t"。</p>
+<p>此时，我们可以联立一个方程组（'h'-&gt;'e'和'q'-&gt;'t'），以下两个方程是我们已知的仿射密码中明文字符和对应的密文字符，但并不知道a和b（在以下等式中，字母已经被转换为数字，'e'= 4，'h'= 7，'q'= 16，'t'= 19）：</p>
+<p style="text-align:center;"><img width="230px" src="../image/AffineCipher-8.png" /></p>
+
+<p>此处我们使用通用方程组化简：</p>
+<p style="text-align:center;"><img width="210px" src="../image/AffineCipher-9.png" /></p>
+
+<p>现在我们已知<code>p q r s</code>，求a和b。首先我们必须找到<code>d=p-q</code>以及d<sup>-1</sup>。现在我们就可以求解a、b，如下图所示：</p>
+<p style="text-align:center;"><img width="250px" src="../image/AffineCipher-10.png" /></p>
+
+<p>继续刚刚的例子，令<code>p=4，r=7，q=19，s=16</code>。则<code>D = p-q = -15 = 11(mod 26)</code>。显然，D<sup>-1</sup> = 19。因此：</p>
+<p style="text-align:center;"><img width="580px" src="../image/AffineCipher-11.png" /></p>
+
+<p>故，<code>a=11，b=15</code>。</p>
+<p>我们再将a和b代入解密程序，查看解密得到的文本是否包含正确的消息。</p>
+                
+                  
+                
+              
+              
+                
+
+
+              
+            </article>
+          </div>
+        </div>
+      </main>
+      
+        
+<footer class="md-footer">
+  
+    <div class="md-footer-nav">
+      <nav class="md-footer-nav__inner md-grid">
+        
+          <a href="../CaesarCipher/" title="凯撒密码" class="md-flex md-footer-nav__link md-footer-nav__link--prev" rel="prev">
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-back md-footer-nav__button"></i>
+            </div>
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Previous
+                </span>
+                凯撒密码
+              </span>
+            </div>
+          </a>
+        
+        
+          <a href="../SimpleSubstitutionCipher/" title="简单替换密码" class="md-flex md-footer-nav__link md-footer-nav__link--next" rel="next">
+            <div class="md-flex__cell md-flex__cell--stretch md-footer-nav__title">
+              <span class="md-flex__ellipsis">
+                <span class="md-footer-nav__direction">
+                  Next
+                </span>
+                简单替换密码
+              </span>
+            </div>
+            <div class="md-flex__cell md-flex__cell--shrink">
+              <i class="md-icon md-icon--arrow-forward md-footer-nav__button"></i>
+            </div>
+          </a>
+        
+      </nav>
+    </div>
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-footer-copyright">
+        
+        powered by
+        <a href="https://www.mkdocs.org">MkDocs</a>
+        and
+        <a href="https://squidfunk.github.io/mkdocs-material/">
+          Material for MkDocs</a>
+      </div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    
+      <script src="../../../assets/javascripts/application.c648116f.js"></script>
+      
+      <script>app.initialize({version:"1.0.4",url:{base:"../../.."}})</script>
+      
+    
+  </body>
+</html>
