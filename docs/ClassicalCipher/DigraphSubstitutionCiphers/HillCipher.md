@@ -50,7 +50,7 @@
 
 <p style="text-align:center;"><img width=50% src="../image/HillCipher-8.png" /></p>
 
-继续求得行列式值模26的乘法逆元为9：
+继续求得行列式值模26的乘法逆元为19：
 
 <p style="text-align:center;"><img width=30% src="../image/HillCipher-9.png" /></p>
 
